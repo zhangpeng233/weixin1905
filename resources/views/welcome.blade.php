@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel 1905
+                    人之初性本善性相近行相远
                 </div>
 
                 <div class="links">
