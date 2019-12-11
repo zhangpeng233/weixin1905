@@ -19,5 +19,3 @@ Route::get('/', function () {
 
 
 
-//微信开发
-Route::get('/wx','Auth\WeiXinWxcontroller@wechat');
