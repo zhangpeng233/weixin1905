@@ -7,5 +7,17 @@ use Illuminate\Http\Request;
 
 class WxController extends Controller
 {
-    //
+
+    public function wechat()
+    {
+
+        
+
+
+
+    }
+
+
+
+
 }

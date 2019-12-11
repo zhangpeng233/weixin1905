@@ -16,6 +16,6 @@ Route::get('/', function () {
 });
 
 
-
-
+//微信开发
+Route::get('/wx','WeiXin\WxController@wechat');
 
