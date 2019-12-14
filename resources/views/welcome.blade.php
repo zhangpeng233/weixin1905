@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    人之初，你最烂
+                    laravel
                 </div>
 
                 <div class="links">
