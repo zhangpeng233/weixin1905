@@ -16,9 +16,15 @@ Route::get('/', function () {
 });
 
 Route::get('/sd', function () {
-    echo 123;
+    echo 234;
 });
 
-//微信开发
+Route::get('/info', function () {
+   phpinfo();
+});
+
+
 Route::get('/wx','WeiXin\WxController@wechat');
+Route::post('/wx','WeiXin\WxController@receiv'); //接收微信的推送事件
+
 

@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    人之初性本善性相近行相远
+                    人之初，你最烂
                 </div>
 
                 <div class="links">
