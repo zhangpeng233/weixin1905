@@ -36,7 +36,8 @@ class WxController extends Controller
      */
     public function wechat()
     {
-        $token = '2259b56f5898cd6192c50';       //开发提前设置好的 token
+        $token = '2259b56f5898cd6192c50
+';       //开发提前设置好的 token
         $signature = $_GET["signature"];
         $timestamp = $_GET["timestamp"];
         $nonce = $_GET["nonce"];
@@ -71,12 +72,12 @@ class WxController extends Controller
             if($u){
                 $msg = '欢迎回来';
                 $xml = '<xml>
-  <ToUserName><![CDATA['.$openid.']]></ToUserName>
-  <FromUserName><![CDATA['.$xml_obj->ToUserName.']]></FromUserName>
-  <CreateTime>'.time().'</CreateTime>
-  <MsgType><![CDATA[text]]></MsgType>
-  <Content><![CDATA['.$msg.']]></Content>
-</xml>';
+          <ToUserName><![CDATA['.$openid.']]></ToUserName>
+          <FromUserName><![CDATA['.$xml_obj->ToUserName.']]></FromUserName>
+          <CreateTime>'.time().'</CreateTime>
+          <MsgType><![CDATA[text]]></MsgType>
+          <Content><![CDATA['.$msg.']]></Content>
+        </xml>';
                 echo $xml;
             }else{
                 //获取用户信息 zcza
@@ -97,12 +98,12 @@ class WxController extends Controller
                 $msg = "谢谢关注";
                 //回复用户关注
                 $xml = '<xml>
-  <ToUserName><![CDATA['.$openid.']]></ToUserName>
-  <FromUserName><![CDATA['.$xml_obj->ToUserName.']]></FromUserName>
-  <CreateTime>'.time().'</CreateTime>
-  <MsgType><![CDATA[text]]></MsgType>
-  <Content><![CDATA['.$msg.']]></Content>
-</xml>';
+                <ToUserName><![CDATA['.$openid.']]></ToUserName>
+              <FromUserName><![CDATA['.$xml_obj->ToUserName.']]></FromUserName>
+              <CreateTime>'.time().'</CreateTime>
+              <MsgType><![CDATA[text]]></MsgType>
+              <Content><![CDATA['.$msg.']]></Content>
+            </xml>';
                 echo $xml;
             }
         }
@@ -114,58 +115,58 @@ class WxController extends Controller
         $media_id = $xml_obj->MediaId;
         if($msg_type=='text'){
             $content = date('Y-m-d H:i:s') . $xml_obj->Content;
-            $response_text = '<xml>
-  <ToUserName><![CDATA['.$touser.']]></ToUserName>
-  <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
-  <CreateTime>'.$time.'</CreateTime>
-  <MsgType><![CDATA[text]]></MsgType>
-  <Content><![CDATA['.$content.']]></Content>
-</xml>';
+                    $response_text = '<xml>
+          <ToUserName><![CDATA['.$touser.']]></ToUserName>
+          <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
+          <CreateTime>'.$time.'</CreateTime>
+          <MsgType><![CDATA[text]]></MsgType>
+          <Content><![CDATA['.$content.']]></Content>
+        </xml>';
             echo $response_text;            // 回复用户消息
             // TODO 消息入库
         }elseif($msg_type=='image'){    // 图片消息
             // TODO 下载图片
             $this->getMedia2($media_id,$msg_type);
             // TODO 回复图片
-            $response = '<xml>
-  <ToUserName><![CDATA['.$touser.']]></ToUserName>
-  <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
-  <CreateTime>'.time().'</CreateTime>
-  <MsgType><![CDATA[image]]></MsgType>
-  <Image>
-    <MediaId><![CDATA['.$media_id.']]></MediaId>
-  </Image>
-</xml>';
+                $response = '<xml>
+          <ToUserName><![CDATA['.$touser.']]></ToUserName>
+          <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
+          <CreateTime>'.time().'</CreateTime>
+          <MsgType><![CDATA[image]]></MsgType>
+          <Image>
+            <MediaId><![CDATA['.$media_id.']]></MediaId>
+          </Image>
+        </xml>';
             echo $response;
         }elseif($msg_type=='voice'){          // 语音消息
             // 下载语音
             $this->getMedia2($media_id,$msg_type);
             // TODO 回复语音
             $response = '<xml>
-  <ToUserName><![CDATA['.$touser.']]></ToUserName>
-  <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
-  <CreateTime>'.time().'</CreateTime>
-  <MsgType><![CDATA[voice]]></MsgType>
-  <Voice>
-    <MediaId><![CDATA['.$media_id.']]></MediaId>
-  </Voice>
-</xml>';
+          <ToUserName><![CDATA['.$touser.']]></ToUserName>
+          <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
+          <CreateTime>'.time().'</CreateTime>
+          <MsgType><![CDATA[voice]]></MsgType>
+          <Voice>
+            <MediaId><![CDATA['.$media_id.']]></MediaId>
+          </Voice>
+        </xml>';
             echo $response;
         }elseif($msg_type=='video'){
             // 下载小视频
             $this->getMedia2($media_id,$msg_type);
             // 回复
             $response = '<xml>
-  <ToUserName><![CDATA['.$touser.']]></ToUserName>
-  <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
-  <CreateTime>'.time().'</CreateTime>
-  <MsgType><![CDATA[video]]></MsgType>
-  <Video>
-    <MediaId><![CDATA['.$media_id.']]></MediaId>
-    <Title><![CDATA[测试]]></Title>
-    <Description><![CDATA[不可描述]]></Description>
-  </Video>
-</xml>';
+          <ToUserName><![CDATA['.$touser.']]></ToUserName>
+          <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
+          <CreateTime>'.time().'</CreateTime>
+          <MsgType><![CDATA[video]]></MsgType>
+          <Video>
+            <MediaId><![CDATA['.$media_id.']]></MediaId>
+            <Title><![CDATA[测试]]></Title>
+            <Description><![CDATA[不可描述]]></Description>
+          </Video>
+        </xml>';
             echo $response;
         }
     }
