@@ -11,7 +11,6 @@
 |
 */
 
-
 Route::get('/', function () {
     $file_name = "abc.mp3";
     $info = pathinfo($file_name);
@@ -19,6 +18,7 @@ Route::get('/', function () {
     echo '<pre>';print_r($info);echo '</pre>';die;
     return view('welcome');
 });
+
 
 Route::get('/sd', function () {
     echo 234;
