@@ -13,13 +13,16 @@ class LoginController extends Controller
         $email = 'zhang@qq.com';
         $user_name = Str::random(8);
         // 使用密码函数
-        $password = password_hash($pass,PASSWORD_BCRYPT);
+        $password = password_hash($pass, PASSWORD_BCRYPT);
         $data = [
             'user_name' => $user_name,
-            'password'  => $password,
-            'email'     => $email,
+            'password' => $password,
+            'email' => $email,
         ];
-        echo '<pre>';print_r($data);echo '</pre>';
+        echo '<pre>';
+        print_r($data);
+        echo '</pre>';
         $uid = UserModel::insertGetId($data);
         var_dump($uid);
     }
+}
